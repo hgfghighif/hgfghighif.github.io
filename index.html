@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coming Soon!</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0d0d0d;
+      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .text {
+      position: absolute;
+      top: -100px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 2em;
+      color: #ffffff;
+      font-weight: bold;
+      opacity: 0.9;
+      pointer-events: none;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotateZ(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  const words = ['Coming Soon!', 'COMING SOON!', 'Coming soon...', 'Stay Tuned!', 'Launching Soon!'];
+
+  function createFallingText() {
+    const span = document.createElement('span');
+    span.className = 'text';
+    span.textContent = words[Math.floor(Math.random() * words.length)];
+    span.style.left = Math.random() * 100 + 'vw';
+    span.style.animationDuration = (3 + Math.random() * 3) + 's';
+    span.style.fontSize = (1.5 + Math.random() * 1.5) + 'em';
+    document.body.appendChild(span);
+
+    setTimeout(() => {
+      span.remove();
+    }, 6000);
+  }
+
+  setInterval(createFallingText, 300);
+</script>
+
+</body>
+</html>
