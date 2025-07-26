@@ -2,59 +2,104 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Coming Soon!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Henry Godman</title>
   <style>
     body {
       margin: 0;
-      background: #0d0d0d;
-      overflow: hidden;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 0;
+      background-color: #eee;
+      font-family: Arial, sans-serif;
     }
 
-    .text {
-      position: absolute;
-      top: -100px;
-      left: 0;
-      right: 0;
-      text-align: center;
-      font-size: 2em;
-      color: #ffffff;
-      font-weight: bold;
-      opacity: 0.9;
-      pointer-events: none;
-      animation: fall linear forwards;
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background-color: white;
+      min-height: 100vh;
+      padding: 2rem;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     }
 
-    @keyframes fall {
-      to {
-        transform: translateY(110vh) rotateZ(360deg);
-        opacity: 0;
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .header img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .project {
+      background-color: #f9f9f9;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      body {
+        background-color: white;
+      }
+
+      .container {
+        box-shadow: none;
+        padding: 1.5rem;
       }
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <div class="header">
+      <img src="https://github.com/hgfghighif.png" alt="GitHub PFP" />
+      <h1>Henry Godman</h1>
+    </div>
 
-<script>
-  const words = ['Coming Soon!', 'COMING SOON!', 'Coming soon...', 'Stay Tuned!', 'Launching Soon!'];
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Hello, I'm Henry Godman, a software enthusiast. I mostly like to code some stupis
+      d programs that does stupid things, like a calculator that doesn&apos;t calculate, or something like that.</p>
+    </section>
 
-  function createFallingText() {
-    const span = document.createElement('span');
-    span.className = 'text';
-    span.textContent = words[Math.floor(Math.random() * words.length)];
-    span.style.left = Math.random() * 100 + 'vw';
-    span.style.animationDuration = (3 + Math.random() * 3) + 's';
-    span.style.fontSize = (1.5 + Math.random() * 1.5) + 'em';
-    document.body.appendChild(span);
+    <section id="projects">
+      <h2>Projects</h2>
 
-    setTimeout(() => {
-      span.remove();
-    }, 6000);
-  }
+      <div class="project">
+        <h3>This website</h3>
+        <p>Yes, this website is open source! You can look at the code and maybe even propose changes!</p>
+        <a href="https://github.com/hgfghighif/hgfghighif.github.io/">Check it out!</a>
+      </div>
 
-  setInterval(createFallingText, 300);
-</script>
+      <div class="project">
+        <h3>GitLab Enhanced (WIP)</h3>
+        <p>An edited version of GitLab FOSS edited to include new features or stuff that makes it better.</p>
+        <a href="https://github.com/hgfghighif/gitlab.hgfghighif.io/">Check it out!</a>
+      </div>
 
+    </section>
+  </div>
 </body>
 </html>
